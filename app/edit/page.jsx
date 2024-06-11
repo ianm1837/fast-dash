@@ -1,26 +1,42 @@
 'use client'
-import React, {useEffect} from "react";
+import React, {useEffect, useState, useRef} from "react";
 import { Editor } from "@monaco-editor/react";
-const fs = require('fs')
-const path = require('path')
 
 export default function Edit() {
     const editorRef = useRef(null);
+    const [readData, setReadData] = useState('')
 
     function handleEditorDidMount(editor) {
       editorRef.current = editor;
     }
 
     useEffect(() => {
-      console.log('dirname: ', __dirname)
+      async function getData(){
+        const data = await fetch('/config')
+        const jsonData = await data.json()
+        console.log('data: ', jsonData)
+        setReadData(JSON.stringify(jsonData, null, 2))
+      }
+      getData()
     }, [])
     
     return (
     <div>
       <Editor
         height="90vh"
-        defaultLanguage="javascript"
+        defaultLanguage="json"
         onMount={handleEditorDidMount}
+        theme="vs-dark"
+        defaultValue={readData}
+        options={
+          {
+            minimap: {
+              enabled: false
+            },
+            fontSize: 15,
+            contextmenu: false,
+          }
+        }
       />
     </div>
   );

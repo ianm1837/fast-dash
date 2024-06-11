@@ -1,0 +1,148 @@
+{
+    "services": [
+      {
+        "name": "Network",
+        "icon": "fas fa-network-wired",
+        "items": [
+          {
+            "name": "pfSense",
+            "logo": "assets/icons/pfsense.svg",
+            "subtitle": "Router",
+            "tag": "",
+            "keywords": "router",
+            "url": "https://router.self-hosted.dev",
+            "tagstyle": "pb-1"
+          },
+          {
+            "name": "Omada",
+            "logo": "assets/icons/tp-link.png",
+            "subtitle": "Wifi AP management",
+            "tag": "",
+            "keywords": "router network access point ap",
+            "url": "https://omada.self-hosted.dev"
+          },
+          {
+            "name": "piHole 1",
+            "logo": "assets/icons/pihole.svg",
+            "subtitle": "Main piHole",
+            "tag": "",
+            "keywords": "dns pihole",
+            "url": "https://pihole1.self-hosted.dev/admin"
+          },
+          {
+            "name": "piHole 2",
+            "logo": "assets/icons/pihole.svg",
+            "subtitle": "Backup piHole",
+            "tag": "",
+            "keywords": "dns pihole",
+            "url": "https://pihole2.self-hosted.dev/admin"
+          },
+          {
+            "name": "NGINX Proxy Manager",
+            "logo": "assets/icons/nginx-proxy-manager.svg",
+            "subtitle": "WAN and LAN Proxy",
+            "tag": "",
+            "keywords": "dns nginx proxy reverse",
+            "url": "https://proxymanager.self-hosted.dev"
+          }
+        ]
+      },
+      {
+        "name": "Hosting",
+        "icon": "fas fa-cloud",
+        "items": [
+          {
+            "name": "Unraid",
+            "logo": "assets/icons/unraid.svg",
+            "subtitle": "Storage and docker hosting",
+            "tag": "",
+            "keywords": "unraid docker host hosting",
+            "url": "http://10.0.0.10"
+          },
+          {
+            "name": "PiKVM",
+            "logo": "assets/icons/pikvm.svg",
+            "subtitle": "Hardware KVM",
+            "keyworkds": "kvm ilo idrac",
+            "url": "https://kvm.self-hosted.dev"
+          },
+          {
+            "name": "Proxmox",
+            "logo": "assets/icons/proxmox.svg",
+            "subtitle": "Bare Metal Hypervisor",
+            "keyworkds": "prox proxmox vm docker container",
+            "url": "https://proxmox.self-hosted.dev"
+          }
+        ]
+      },
+      {
+        "name": "IoT",
+        "icon": "fas fa-house",
+        "items": [
+          {
+            "name": "Homeassistant",
+            "logo": "assets/icons/homeassistant.svg",
+            "subtitle": "Smart home dashboard",
+            "tag": "",
+            "keywords": "home smart homeassistant",
+            "url": "https://homeassistant.self-hosted.dev"
+          },
+          {
+            "name": "NodeRED",
+            "logo": "assets/icons/nodered.svg",
+            "subtitle": "Smart home dashboard",
+            "tag": "",
+            "keywords": "home smart homeassistant",
+            "url": "https://homeassistant.self-hosted.dev"
+          },
+          {
+            "name": "Klipper",
+            "logo": "assets/icons/mainsail.svg",
+            "subtitle": "3d Printer Dashboard",
+            "tag": "",
+            "keywords": "print 3d",
+            "url": "https://3dprinter.self-hosted.dev"
+          }
+        ]
+      },
+      {
+        "name": "arr",
+        "icon": "fas fa-skull-crossbones",
+        "items": [
+          {
+            "name": "Syncthing arr",
+            "logo": "assets/icons/syncthing.svg",
+            "subtitle": "Seafaring syncthing",
+            "tag": "",
+            "keywords": "sync thing",
+            "url": "http://10.0.0.10:8384"
+          },
+          {
+            "name": "Overseerr",
+            "logo": "assets/icons/overseerr.svg",
+            "subtitle": "Make requests",
+            "tag": "",
+            "keywords": "request oversee",
+            "url": "https://request.ianm1837.com"
+          },
+          {
+            "name": "Radarr",
+            "logo": "assets/icons/radarr.svg",
+            "subtitle": "Movie management",
+            "tag": "",
+            "keywords": "movies",
+            "url": "https://radarr.self-hosted.dev"
+          },
+          {
+            "name": "Sonarr",
+            "logo": "assets/icons/sonarr.svg",
+            "subtitle": "TV management",
+            "tag": "",
+            "keywords": "tv",
+            "url": "https://sonarr.self-hosted.dev"
+          }
+        ]
+      }
+    ]
+  }
+  

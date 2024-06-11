@@ -1,0 +1,15 @@
+const fs = require('fs').promises
+const path = require('path')
+const process = require('process')
+
+export async function GET(request) {
+    try{
+        const filePath = path.join(process.cwd(), 'data/config.json')
+        const data = await fs.readFile(filePath, 'utf-8')
+        return Response.json(JSON.parse(data))
+    }
+    catch (error){
+        console.log("error: ", error)
+        return Response.json({error: error})
+    }
+}

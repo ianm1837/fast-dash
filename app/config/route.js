@@ -13,3 +13,7 @@ export async function GET(request) {
         return Response.json({error: error})
     }
 }
+
+export async function POST(request) {
+    
+}

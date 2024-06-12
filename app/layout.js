@@ -1,6 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
+import GlobalContextProvider from "@/components/GlobalContextProvider";
+import { GlobalContext } from "@/components/GlobalContextProvider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,8 +15,11 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Navbar />
-        {children}</body>
+        <GlobalContextProvider>
+          <Navbar />
+          {children}
+        </GlobalContextProvider>
+        </body>
     </html>
   );
 }

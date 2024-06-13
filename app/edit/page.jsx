@@ -1,13 +1,29 @@
 'use client'
 import React, {useEffect, useState, useRef, useContext} from "react";
 import { Editor } from "@monaco-editor/react";
-import { GlobalContext } from "@/components/GlobalContextProvider";
+// import { GlobalContext } from "@/components/GlobalContextProvider";
+import { QueryClient } from "@tanstack/react-query";
 
-export default function Edit() {
+export default async function Edit() {
     const editorRef = useRef(null);
     const [readData, setReadData] = useState('')
 
-    const { setEditorData } = useContext(GlobalContext)
+    const queryClient = new QueryClient({
+      defaultOptions: {
+        queries: {
+          staleTime: Infinity
+        }
+      }
+    })
+
+    const queryCache = queryClient.getQueryState(['configData'])
+
+    useEffect(() => {
+      console.log("queryCache: ", queryCache)
+
+    }, [queryCache])
+
+    // const { setEditorData } = useContext(GlobalContext)
 
     function handleEditorDidMount(editor) {
       editorRef.current = editor;
@@ -15,16 +31,16 @@ export default function Edit() {
 
     function handleOnChange(value){
       // console.log('editor value: ', value)
-      setEditorData(value)
+      // setEditorData(value)
     }
 
     useEffect(() => {
       async function getData(){
-        const data = await fetch('/config')
-        const jsonData = await data.json()
-        setReadData(JSON.stringify(jsonData, null, 2))
+        // const data = await fetch('/config')
+        // const jsonData = await data.json()
+        // setReadData(JSON.stringify(jsonData, null, 2))
       }
-      getData()
+      // getData()
     }, [])
     
     return (
@@ -32,9 +48,9 @@ export default function Edit() {
       <Editor
         height="90vh"
         defaultLanguage="json"
-        onMount={handleEditorDidMount}
+        // onMount={handleEditorDidMount}
         theme="vs-dark"
-        defaultValue={readData}
+        // defaultValue={readData}
         onChange={handleOnChange}
         options={
           {

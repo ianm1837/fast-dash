@@ -1,23 +1,23 @@
 "use client";
 import React, { useContext, useEffect } from "react";
-import { GlobalContext } from "@/components/GlobalContextProvider";
+// import { GlobalContext } from "@/components/GlobalContextProvider";
 import Link from "next/link";
 
 export default function SaveConfigButton() {
-  const { editorData, setEditorData } = useContext(GlobalContext);
+  // const { editorData, setEditorData } = useContext(GlobalContext);
 
   async function handleSaveData() {
     console.log("tried to save");
-    setEditorData('')
+    // setEditorData('')
   }
 
-  useEffect(() => {
-    console.log('editorData: ', editorData)
-  }, [editorData])
+  // useEffect(() => {
+  //   console.log('editorData: ', editorData)
+  // }, [editorData])
 
   return (
     <>
-      {editorData == '' ? (
+      {true ? (
         <Link className="btn btn-primary" href="/">
           Exit
         </Link>

@@ -1,38 +1,15 @@
 'use client'
 import React, {useEffect, useState, useRef, useContext} from "react";
-import { Editor } from "@monaco-editor/react";
+// import { Editor } from "@monaco-editor/react";
 // import { GlobalContext } from "@/components/GlobalContextProvider";
 import { QueryClient } from "@tanstack/react-query";
+import useFetchConfig from "../hooks/queries/useFetchConfig";
+import * as monaco from 'monaco-editor'
 
-export default async function Edit() {
+export default function Edit() {
     const editorRef = useRef(null);
-    const [readData, setReadData] = useState('')
-
-    const queryClient = new QueryClient({
-      defaultOptions: {
-        queries: {
-          staleTime: Infinity
-        }
-      }
-    })
-
-    const queryCache = queryClient.getQueryState(['configData'])
-
-    useEffect(() => {
-      console.log("queryCache: ", queryCache)
-
-    }, [queryCache])
-
-    // const { setEditorData } = useContext(GlobalContext)
-
-    function handleEditorDidMount(editor) {
-      editorRef.current = editor;
-    }
-
-    function handleOnChange(value){
-      // console.log('editor value: ', value)
-      // setEditorData(value)
-    }
+    const editorContainerRef = useRef(null)
+    const { data, isLoading, isError } = useFetchConfig()
 
     useEffect(() => {
       async function getData(){
@@ -41,16 +18,48 @@ export default async function Edit() {
         // setReadData(JSON.stringify(jsonData, null, 2))
       }
       // getData()
+
+      console.log("self: ", self)
+
+      self.MonacoEnvironment = {
+        getWorkerUrl: function (moduleId, label) {
+          if (label === 'json') {
+            return './json.worker.bundle.js';
+          }
+          if (label === 'css' || label === 'scss' || label === 'less') {
+            return './css.worker.bundle.js';
+          }
+          if (label === 'html' || label === 'handlebars' || label === 'razor') {
+            return './html.worker.bundle.js';
+          }
+          if (label === 'typescript' || label === 'javascript') {
+            return './ts.worker.bundle.js';
+          }
+          return './editor.worker.bundle.js';
+        }
+      };
+
+      const editor = monaco.editor.create(editorContainerRef.current, {
+        value: '',
+        language: 'json',
+        theme: "vs-dark",
+        minimap: {
+          enabled: false
+        },
+        fontSize: 15,
+        contextmenu: false,
+      })
     }, [])
     
     return (
-    <div>
-      <Editor
+    <div className="w-screen h-screen">
+      <div ref={editorContainerRef} className="w-full h-full"/>
+      {/* <Editor
         height="90vh"
         defaultLanguage="json"
-        // onMount={handleEditorDidMount}
+        onMount={handleEditorDidMount}
         theme="vs-dark"
-        // defaultValue={readData}
+        defaultValue="test data"
         onChange={handleOnChange}
         options={
           {
@@ -61,7 +70,7 @@ export default async function Edit() {
             contextmenu: false,
           }
         }
-      />
+      /> */}
     </div>
   );
 }

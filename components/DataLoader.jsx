@@ -1,6 +1,6 @@
 'use client'
 import React from 'react'
-import useFetchConfig from '@/app/hooks/queries/useFetchConfig'
+// import useFetchConfig from '@/app/hooks/queries/useFetchConfig'
 
 export default function DataLoader() {
     // const { data, isLoading} = useQuery({
@@ -12,7 +12,7 @@ export default function DataLoader() {
     //     queryKey: ['configData']
     // })
 
-    const { data, isLoading, isError } = useFetchConfig()
+    // const { data, isLoading, isError } = useFetchConfig()
 
     React.useEffect(() => {
         console.log("react-query data: ", data)

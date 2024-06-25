@@ -1,8 +1,6 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
-import QueryProvider from "@/components/QueryProvider";
-import DataLoader from "@/components/DataLoader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,14 +11,11 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body className={inter.className}>
-        <QueryProvider>
-          <DataLoader />
-          <Navbar />
-          {children}
-        </QueryProvider>
-        </body>
+    <html lang="en" className="h-screen w-screen">
+      <body className={`${inter.className} h-full w-full flex flex-col`}>
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }

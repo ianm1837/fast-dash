@@ -1,6 +1,12 @@
+import CardList from '@/components/CardList'
+
 export default function Home() {
+
   return (
-    <main className="flex min-h-full flex-col items-center justify-between p-24">
+    <main className=" ">
+      <CardList>
+
+      </CardList>
         
     </main>
   );

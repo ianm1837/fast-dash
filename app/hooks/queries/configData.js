@@ -5,7 +5,6 @@ export async function getConfigData(){
   const data = await res.json() 
   console.log("data: ", data)
   return data 
-  
 }
 
 export async function setConfigData(data){

@@ -10,11 +10,11 @@ const Navbar = () => {
       <Link href="/" className="btn btn-ghost text-xl">fast dash</Link>
       {pathname == '/edit' ? (
         <div>
-          <Link href="/" className="btn btn-primary btn-outline mr-3">Apply to Homepage</Link>
+          <a href="/" className="btn btn-primary btn-outline mr-3">Apply to Homepage</a>
           <SaveConfigButton />
         </div>
       ):(
-        <Link href="/edit" className="btn btn-primary">edit</Link>
+        <a href="/edit" className="btn btn-primary">edit</a>
       )}
       
     </div>

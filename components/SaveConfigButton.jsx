@@ -22,7 +22,7 @@ export default function SaveConfigButton() {
           Exit
         </Link>
       ) : (
-        <a className="btn btn-primary" onClick={handleSaveData}>
+        <a className="btn btn-primary" onClick={() => handleSaveData}>
           Save Config
         </a>
       )}

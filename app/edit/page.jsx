@@ -5,37 +5,32 @@ import { GlobalContext } from "@/components/GlobalContextProvider";
 
 export default function Edit() {
     const editorRef = useRef(null);
-    const [readData, setReadData] = useState('')
 
-    const { setEditorData } = useContext(GlobalContext)
+    const { setEditorDataChanged, editorData, setJsonError } = useContext(GlobalContext)
 
     function handleEditorDidMount(editor) {
       editorRef.current = editor;
     }
 
     function handleOnChange(value){
-      // console.log('editor value: ', value)
-      setEditorData(value)
+      //makes save button appear in navbar
+      setEditorDataChanged(true)
     }
 
-    useEffect(() => {
-      async function getData(){
-        const data = await fetch('/config')
-        const jsonData = await data.json()
-        setReadData(JSON.stringify(jsonData, null, 2))
-      }
-      getData()
-    }, [])
+    function handleOnValidate(e){
+      setEditorDataChanged(false)
+    }
     
     return (
     <div>
       <Editor
         height="90vh"
         defaultLanguage="json"
-        onMount={handleEditorDidMount}
+        onMount={() => handleEditorDidMount()}
         theme="vs-dark"
-        defaultValue={readData}
-        onChange={handleOnChange}
+        defaultValue={editorData}
+        onChange={() => handleOnChange()}
+        onValidate={() => handleOnValidate()}
         options={
           {
             minimap: {

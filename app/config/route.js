@@ -1,3 +1,5 @@
+import { NextResponse } from 'next/server'
+
 const fs = require('fs').promises
 const path = require('path')
 const process = require('process')
@@ -15,5 +17,7 @@ export async function GET(request) {
 }
 
 export async function POST(request) {
-    
+    console.log(request)
+
+    return NextResponse.json({  }, { status: 200    })
 }

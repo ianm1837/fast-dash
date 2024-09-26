@@ -13,13 +13,12 @@ const Navbar = () => {
     } )
   }
 
-  const testData = { testKey: "testValue" }   
   return (
     <div className="navbar bg-base-100 flex justify-between">
       <Link href="/" className="btn btn-ghost text-xl">fast dash</Link>
       {pathname == '/edit' ? (
         <div>
-          <button onClick={() => handleSaveConfig(testData)}>Save</button>
+          <button onClick={() => handleSaveConfig({ testKey: "testValue" })}>Save</button>
 
           <SaveConfigButton />
         </div>
